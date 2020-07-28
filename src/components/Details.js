@@ -59,7 +59,7 @@ export default class Details extends Component {
                         value.openModel(id);
                       }}
                     >
-                      {inCart ? "inCart" : "add to cart"}
+                      {inCart ? "inCart" : "Buy"}
                     </ButtonContainer>
                   </div>
                 </div>
