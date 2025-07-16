@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-web-app
+                  http://xmlns.oracle.com/weblogic/weblogic-web-app/1.9/weblogic-web-app.xsd">
+
+    <context-root>/role-validator</context-root>
+
+    <!-- Container Descriptor -->
+    <container-descriptor>
+        <servlet-reload-check-secs>-1</servlet-reload-check-secs>
+        <resource-reload-check-secs>-1</resource-reload-check-secs>
+        
+        <!-- JSP Configuration -->
+        <jsp-descriptor>
+            <jsp-param>
+                <param-name>verbose</param-name>
+                <param-value>false</param-value>
+            </jsp-param>
+            <jsp-param>
+                <param-name>debug</param-name>
+                <param-value>false</param-value>
+            </jsp-param>
+        </jsp-descriptor>
+        
+        <!-- Prefer web application packages -->
+        <prefer-web-inf-classes>true</prefer-web-inf-classes>
+        
+        <!-- Filter dispatcher includes forward and include -->
+        <filter-dispatched-requests-enabled>true</filter-dispatched-requests-enabled>
+    </container-descriptor>
+
+    <!-- Session Descriptor -->
+    <session-descriptor>
+        <session-param>
+            <param-name>SessionTrackingEnabled</param-name>
+            <param-value>true</param-value>
+        </session-param>
+        <session-param>
+            <param-name>CookiesEnabled</param-name>
+            <param-value>true</param-value>
+        </session-param>
+        <session-param>
+            <param-name>URLRewritingEnabled</param-name>
+            <param-value>true</param-value>
+        </session-param>
+    </session-descriptor>
+
+    <!-- Character Set Mapping -->
+    <charset-params>
+        <input-charset>
+            <resource-path>/*</resource-path>
+            <java-charset-name>UTF-8</java-charset-name>
+        </input-charset>
+    </charset-params>
+
+</weblogic-web-app>
