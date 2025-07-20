@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>rtc-enumeration-client</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>IBM RTC Enumeration Client</name>
+    <description>Java client program to add enumeration using IBM RTC client SDK</description>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- IBM RTC SDK Dependencies -->
+        <!-- Note: These JARs need to be installed manually or available in a repository -->
+        <dependency>
+            <groupId>com.ibm.team</groupId>
+            <artifactId>repository-common</artifactId>
+            <version>7.0.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.ibm.team.repository.common.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.ibm.team</groupId>
+            <artifactId>repository-client</artifactId>
+            <version>7.0.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.ibm.team.repository.client.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.ibm.team</groupId>
+            <artifactId>workitem-common</artifactId>
+            <version>7.0.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.ibm.team.workitem.common.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.ibm.team</groupId>
+            <artifactId>workitem-client</artifactId>
+            <version>7.0.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.ibm.team.workitem.client.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.ibm.team</groupId>
+            <artifactId>process-common</artifactId>
+            <version>7.0.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.ibm.team.process.common.jar</systemPath>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.example.rtc.RTCEnumerationClient</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
