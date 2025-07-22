@@ -1,0 +1,12 @@
+# Sample categories for IBM RTC bulk import
+# Format: categoryName,categoryDescription
+Bug,Software defects and issues that need to be fixed
+Enhancement,Feature requests and improvements to existing functionality
+Task,General tasks and activities
+Story,User stories and requirements
+Epic,Large features or initiatives spanning multiple sprints
+Documentation,Documentation-related work items
+Research,Research and investigation tasks
+Support,Customer support and maintenance activities
+Testing,Quality assurance and testing activities
+Infrastructure,Infrastructure and deployment related work
